@@ -23,7 +23,7 @@ class CommentRepositoryTest {
     }
 
     @Test
-    void testThatWeHaveAFunctionalCommentRepository(){
+    void testThatWeHaveACommentRepositoryThatCanSaveAComment(){
         Comment comment = new Comment();
         assertThat(comment.getId()).isNull();
         comment.setBody("This is the Body");

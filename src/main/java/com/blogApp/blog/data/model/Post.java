@@ -27,6 +27,7 @@ public class Post {
     @Column(nullable=false)
     private String postBody;
 
+    @Column(nullable=false)
     private String author;
 
     @OneToMany

@@ -33,4 +33,13 @@ class PostRepositoryTest {
         assertThat(post.getId()).isNotNull();
 
     }
+
+    @Test
+    void testToFindPostById(){
+        Post post2 = postRepository.findById(13l).orElse(null);
+        assertThat(post2.getId()).isNotNull();
+        assertThat(post2.getAuthor()).isEqualTo("Chinomso");
+        assertThat(post2.getPostBody()).isNotNull();
+
+    }
 }

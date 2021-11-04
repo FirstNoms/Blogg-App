@@ -36,7 +36,6 @@ class CommentRepositoryTest {
     void testToFindCommentById(){
         Comment comment1  = commentRepository.findById(10l).orElse(null);
         assertThat(comment1.getId()).isNotNull();
-
-
+        assertThat(comment1.getName()).isEqualTo("Chinomso");
     }
 }

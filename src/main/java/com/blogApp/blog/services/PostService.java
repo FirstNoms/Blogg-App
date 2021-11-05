@@ -10,6 +10,6 @@ public interface PostService {
     Post findByPostId(Long id);
     Post findPostByTitle(String title);
     List<Post> findPostByAuthor();
-    void deletePost(String id);
+    void deletePost(Long id);
     Post updatePost(Long id, PostUpdateDto postUpdate);
 }

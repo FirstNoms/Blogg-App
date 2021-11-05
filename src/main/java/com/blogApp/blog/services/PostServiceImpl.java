@@ -33,7 +33,8 @@ public class PostServiceImpl implements PostService {
     }
 
     @Override
-    public void deletePost(String id) {
+    public void deletePost(Long id) {
+        postRepository.deleteById(id);
 
     }
 

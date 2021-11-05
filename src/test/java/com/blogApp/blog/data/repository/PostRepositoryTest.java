@@ -40,6 +40,12 @@ class PostRepositoryTest {
         assertThat(post2.getId()).isNotNull();
         assertThat(post2.getAuthor()).isEqualTo("Chinomso");
         assertThat(post2.getPostBody()).isNotNull();
+    }
 
+    @Test
+    void testToDeleteAPost(){
+        int size = postRepository.findAll().size();
+        postRepository.deleteById(14L);
+        assertThat(postRepository.findAll().size()).isEqualTo(size-1);
     }
 }

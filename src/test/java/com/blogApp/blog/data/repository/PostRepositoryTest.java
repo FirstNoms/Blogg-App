@@ -9,20 +9,15 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.jdbc.Sql;
 
+import java.util.List;
+
 import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 import static org.junit.jupiter.api.Assertions.*;
 
 @SpringBootTest
 @Slf4j
-@Sql(scripts={"/db/insert.sql"})    //link up your post database values with the postRepository test.
+//@Sql(scripts={"/db/insert.sql"})    //link up your post database values with the postRepository test.
 class PostRepositoryTest {
-    /**savePost(Post post);
-     findByPostId(Long id);
-     findPostByTitle(String title);
-     List<Post> findPostByAuthor();
-     void deletePost(Long id);
-     updatePost(Long id, PostUpdateDto postUpdate);
-     * */
     @Autowired
     PostRepository postRepository;
 
@@ -56,12 +51,31 @@ class PostRepositoryTest {
         assertThat(postRepository.findAll().size()).isEqualTo(size-1);
     }
 
+//    @Test
+//    void testToUpdatePostBody(){
+//        Post post3 = postRepository.findById(13l).orElse(null);
+//        post3.setPostBody("Its great to be in the Tech world");
+//        Post savedPost = postRepository.save(post3);
+//        savedPost.setPostBody("it is well");
+//        assertThat(savedPost.getPostBody()).isEqualTo("it is well");
+//    }
+
     @Test
-    void testToUpdatePostBody(){
-        Post post3 = postRepository.findById(13l).orElse(null);
-        post3.setPostBody("Its great to be in the Tech world");
-        Post savedPost = postRepository.save(post3);
-        savedPost.setPostBody("it is well");
-        assertThat(savedPost.getPostBody()).isEqualTo("it is well");
+    void deleteAll(){
+        Post post1 = new Post();
+        Post post2 = new Post();
+        post1.setPostBody("Takes care of the product from the idea to production");
+        post1.setTitle("Product Management");
+        post2.setPostBody("Takes care of writing programs on the computer");
+        post2.setTitle("Software Development");
+        Post savedPost = postRepository.save(post1);
+        Post savedPost2 = postRepository.save(post2);
+        assertThat(post1.getId()).isNotNull();
+        assertThat(post2.getId()).isNotNull();
+        postRepository.deleteAll();
+        List<Post> foundPost = postRepository.findAll();
+        assertThat(foundPost.size()).isEqualTo(0);
     }
+
+
 }

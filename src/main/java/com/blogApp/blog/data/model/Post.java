@@ -27,13 +27,14 @@ public class Post {
     @Column(nullable=false)
     private String postBody;
 
-    @Column(nullable=false)
     private String author;
 
     @OneToMany
     private List<Comment>comments;
+
     @CreationTimestamp
     private LocalDateTime dateCreated;
+
     @UpdateTimestamp
     private LocalDateTime dateUpdated;
 

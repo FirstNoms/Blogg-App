@@ -16,6 +16,13 @@ import static org.junit.jupiter.api.Assertions.*;
 @Slf4j
 @Sql(scripts={"/db/insert.sql"})    //link up your post database values with the postRepository test.
 class PostRepositoryTest {
+    /**savePost(Post post);
+     findByPostId(Long id);
+     findPostByTitle(String title);
+     List<Post> findPostByAuthor();
+     void deletePost(Long id);
+     updatePost(Long id, PostUpdateDto postUpdate);
+     * */
     @Autowired
     PostRepository postRepository;
 
@@ -47,5 +54,14 @@ class PostRepositoryTest {
         int size = postRepository.findAll().size();
         postRepository.deleteById(14L);
         assertThat(postRepository.findAll().size()).isEqualTo(size-1);
+    }
+
+    @Test
+    void testToUpdatePostBody(){
+        Post post3 = postRepository.findById(13l).orElse(null);
+        post3.setPostBody("Its great to be in the Tech world");
+        Post savedPost = postRepository.save(post3);
+        savedPost.setPostBody("it is well");
+        assertThat(savedPost.getPostBody()).isEqualTo("it is well");
     }
 }

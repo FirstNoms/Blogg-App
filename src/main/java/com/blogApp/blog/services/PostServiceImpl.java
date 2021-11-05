@@ -6,6 +6,7 @@ import com.blogApp.blog.data.repository.PostRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import java.util.List;
+import java.util.Optional;
 
 public class PostServiceImpl implements PostService {
 
@@ -18,13 +19,18 @@ public class PostServiceImpl implements PostService {
     }
 
     @Override
-    public Post findByPostId(Long id) {
-        return postRepository.findById(id).orElse(null);
+    public Optional<Post> findByPostId(Long id) {
+        return postRepository.findById(id);
     }
 
     @Override
     public Post findPostByTitle(String title) {
         return null;
+
+//        Post post = postRepository.findPostByTitle(title);
+//        if(post == null){
+//            throw new IllegalStateException("This title doesnt exist");
+//        }
     }
 
     @Override

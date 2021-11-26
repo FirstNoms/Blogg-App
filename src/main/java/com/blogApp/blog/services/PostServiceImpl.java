@@ -1,5 +1,6 @@
 package com.blogApp.blog.services;
 
+import com.blogApp.blog.data.dto.PostDto;
 import com.blogApp.blog.data.model.Post;
 import com.blogApp.blog.data.dto.PostUpdateDto;
 import com.blogApp.blog.data.repository.PostRepository;
@@ -10,6 +11,7 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 import java.util.Optional;
 
+@Service
 public class PostServiceImpl implements PostService {
 
     @Autowired
@@ -62,5 +64,10 @@ public class PostServiceImpl implements PostService {
        }else{
            throw new IllegalArgumentException("Post with this Id doesnt exist");
        }
+    }
+
+    @Override
+    public Post deletePostById(Long id) {
+        return null;
     }
 }

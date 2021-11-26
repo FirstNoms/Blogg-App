@@ -1,4 +1,4 @@
-package com.blogApp.blog.services.mapper;
+package com.blogApp.blog.services;
 
 import com.blogApp.blog.data.dto.PostUpdateDto;
 import com.blogApp.blog.data.model.Comment;

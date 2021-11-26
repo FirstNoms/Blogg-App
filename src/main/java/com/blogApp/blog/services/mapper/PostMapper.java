@@ -1,5 +1,6 @@
 package com.blogApp.blog.services.mapper;
 
+import com.blogApp.blog.data.dto.PostDto;
 import com.blogApp.blog.data.dto.PostUpdateDto;
 import com.blogApp.blog.data.model.Post;
 import org.mapstruct.BeanMapping;

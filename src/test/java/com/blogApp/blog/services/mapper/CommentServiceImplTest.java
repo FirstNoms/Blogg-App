@@ -1,10 +1,8 @@
 package com.blogApp.blog.services.mapper;
 
 import com.blogApp.blog.data.model.Comment;
-import com.blogApp.blog.data.model.Post;
 import com.blogApp.blog.data.repository.CommentRepository;
-import com.blogApp.blog.data.repository.PostRepository;
-import com.blogApp.blog.services.PostServiceImpl;
+import com.blogApp.blog.services.CommentServiceImpl;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.InjectMocks;
@@ -13,7 +11,6 @@ import org.mockito.MockitoAnnotations;
 
 import java.util.Optional;
 
-import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.*;
 
 class CommentServiceImplTest {

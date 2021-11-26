@@ -32,10 +32,10 @@ public class Post {
     @OneToMany
     private List<Comment>comments;
 
-    @CreationTimestamp
-    private LocalDateTime dateCreated;
-
-    @UpdateTimestamp
-    private LocalDateTime dateUpdated;
+//    @CreationTimestamp
+//    private LocalDateTime dateCreated;
+//
+//    @UpdateTimestamp
+//    private LocalDateTime dateUpdated;
 
 }

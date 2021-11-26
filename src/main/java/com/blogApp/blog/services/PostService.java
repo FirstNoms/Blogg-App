@@ -1,5 +1,6 @@
 package com.blogApp.blog.services;
 
+import com.blogApp.blog.data.dto.PostDto;
 import com.blogApp.blog.data.model.Post;
 import com.blogApp.blog.data.dto.PostUpdateDto;
 import org.springframework.stereotype.Service;
@@ -14,4 +15,5 @@ public interface PostService {
     List<Post> findPostByAuthor();
     void deletePost(Long id);
     Post updatePost(Long id, PostUpdateDto postUpdate);
+    Post deletePostById(Long id);
 }
